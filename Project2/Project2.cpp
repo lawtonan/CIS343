@@ -160,7 +160,7 @@ int main() {
 	concertList.push_back(concert9);
 	concertList.push_back(concert10);
 
-	//printing the list before the sort
+	// Printing the list before the sort
 	std::cout << "Before: \n";
 	for (int i = 0; i < concertList.size(); i++){
 		std::cout << concertList[i] << "\n";
@@ -170,7 +170,7 @@ int main() {
 	// Sortung the objects
 	std::sort(concertList.begin(), concertList.end());
 
-	// Printing the list afet the sort
+	// Printing the list after the sort
 	std::cout << "\nAfter: \n";
 	for (int i = 0; i < concertList.size(); i++){
 		std::cout << concertList[i] << "\n";
