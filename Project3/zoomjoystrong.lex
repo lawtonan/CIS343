@@ -12,8 +12,14 @@
 
 (end)		{return END;}
 \;		{return END_STATEMENT;}
-[0-9]+		{return INT;}
-[0-9]*\.[0-9]+	{return FLOAT;}
+[0-9]+		{
+		yylval.ival = atoi(yytext);
+		return INT;
+		}
+[0-9]*\.[0-9]+	{
+		yylval.fval = atof(yytext);
+		return FLOAT;
+		}
 (line)		{return LINE;}
 (point)		{return POINT;}
 (circle)	{return CIRCLE;}

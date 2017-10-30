@@ -2,10 +2,16 @@
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
+int yyerror(char *s);
 
 %}
 
 %start statement_list
+
+%union {
+	int ival;
+	float fval;
+}
 
 %token END
 %token END_STATEMENT
@@ -14,8 +20,8 @@
 %token CIRCLE
 %token RECTANGLE
 %token SET_COLOR
-%token INT
-%token FLOAT
+%token <ival> INT
+%token <fval> FLOAT
 
 
 %%                   /* beginning of rules section */
@@ -42,11 +48,17 @@ statement:	line
 end:		END END_STATEMENT
 		{
 		finish();
+		exit(0);
 		}
+		;
 
 line:		LINE INT INT INT INT END_STATEMENT
 		{
-         	  line($2,$3,$4,$5);
+		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
+		  	yyerror("HEIGHT or WIDTH is out of bounds");
+		  }else{
+         	 	line($2,$3,$4,$5);
+		  }
          	}
 		;
 
@@ -81,8 +93,7 @@ main()
  return(yyparse());
 }
 
-int yyerror(s)
-char *s;
+int yyerror(char *s)
 {
   fprintf(stderr, "%s\n",s);
 }

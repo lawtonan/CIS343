@@ -67,9 +67,10 @@
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
+int yyerror(char *s);
 
 
-#line 73 "zoomjoystrong.tab.c" /* yacc.c:339  */
+#line 74 "zoomjoystrong.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -118,7 +119,18 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE
+{
+#line 11 "zoomjoystrong.y" /* yacc.c:355  */
+
+	int ival;
+	float fval;
+
+#line 131 "zoomjoystrong.tab.c" /* yacc.c:355  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -132,7 +144,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 136 "zoomjoystrong.tab.c" /* yacc.c:358  */
+#line 148 "zoomjoystrong.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -430,8 +442,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    24,    24,    26,    29,    31,    33,    35,    37,    39,
-      42,    47,    53,    59,    65,    71
+       0,    30,    30,    32,    35,    37,    39,    41,    43,    45,
+      48,    54,    64,    70,    76,    82
 };
 #endif
 
@@ -1217,55 +1229,59 @@ yyreduce:
   switch (yyn)
     {
         case 10:
-#line 43 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
     {
 		finish();
 		}
-#line 1225 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1237 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 48 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 55 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-         	  line((yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));
+		  if((yyvsp[-4].ival) < 0 || (yyvsp[-3].ival) < 0 || (yyvsp[-4].ival) > WIDTH || (yyvsp[-3].ival) > HEIGHT){
+		  	yyerror("HEIGHT or WIDTH is out of bounds");
+		  }else{
+         	 	line((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  }
          	}
-#line 1233 "zoomjoystrong.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 12:
-#line 54 "zoomjoystrong.y" /* yacc.c:1646  */
-    {
-		  point((yyvsp[-2]),(yyvsp[-1]));
-		}
-#line 1241 "zoomjoystrong.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 13:
-#line 60 "zoomjoystrong.y" /* yacc.c:1646  */
-    {
-		  circle((yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));
-		}
 #line 1249 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
-  case 14:
-#line 66 "zoomjoystrong.y" /* yacc.c:1646  */
+  case 12:
+#line 65 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  rectangle((yyvsp[-4]),(yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));
+		  point((yyvsp[-2].ival),(yyvsp[-1].ival));
 		}
 #line 1257 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
-  case 15:
-#line 72 "zoomjoystrong.y" /* yacc.c:1646  */
+  case 13:
+#line 71 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  set_color((yyvsp[-3]),(yyvsp[-2]),(yyvsp[-1]));
+		  circle((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		}
 #line 1265 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
+  case 14:
+#line 77 "zoomjoystrong.y" /* yacc.c:1646  */
+    {
+		  rectangle((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		}
+#line 1273 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+    break;
 
-#line 1269 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+  case 15:
+#line 83 "zoomjoystrong.y" /* yacc.c:1646  */
+    {
+		  set_color((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		}
+#line 1281 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+    break;
+
+
+#line 1285 "zoomjoystrong.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1493,7 +1509,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 76 "zoomjoystrong.y" /* yacc.c:1906  */
+#line 87 "zoomjoystrong.y" /* yacc.c:1906  */
 
 
 main()
@@ -1502,8 +1518,7 @@ main()
  return(yyparse());
 }
 
-int yyerror(s)
-char *s;
+int yyerror(char *s)
 {
   fprintf(stderr, "%s\n",s);
 }
