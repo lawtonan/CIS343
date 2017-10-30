@@ -167,7 +167,7 @@ int main() {
 		//std::cout << concertList[i].getName() << "\n";
 	}
 	
-	// Sortung the objects
+	// Sorting the objects
 	std::sort(concertList.begin(), concertList.end());
 
 	// Printing the list after the sort
