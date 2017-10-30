@@ -55,7 +55,7 @@ end:		END END_STATEMENT
 line:		LINE INT INT INT INT END_STATEMENT
 		{
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
-		  	yyerror("HEIGHT or WIDTH is out of bounds");
+		  	yyerror("Dimensions out of bounds");
 		  }else{
          	 	line($2,$3,$4,$5);
 		  }
@@ -64,25 +64,41 @@ line:		LINE INT INT INT INT END_STATEMENT
 
 point:		POINT INT INT END_STATEMENT
 		{
-		  point($2,$3);
+		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
+		  	yyerror("Dimensions out of bounds");
+		  }else{
+         	 	point($2,$3);
+		  }
 		}
 		;
 
 circle:		CIRCLE INT INT INT END_STATEMENT
 		{
-		  circle($2,$3,$4);
+		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
+		  	yyerror("Dismensions out of bounds");
+		  }else{
+		  	circle($2,$3,$4);
+		  }
 		}
 		;
 
 rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 		{
-		  rectangle($2,$3,$4,$5);
+		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
+		  	yyerror("Dismensions out of bounds");
+		  }else{
+		  	rectangle($2,$3,$4,$5);
+		  }
 		}
 		;
 
 set_color:	SET_COLOR INT INT INT END_STATEMENT
 		{
-		  set_color($2,$3,$4);
+		  if ($2 < 0 || $3 < 0 || $4 < 0 || $2 > 255 || $3 >255 || $4 > 255){
+			yyerror("Color Does Not Exist");
+		  }else {
+		  	set_color($2,$3,$4);
+		  }
 		}
 
 %%

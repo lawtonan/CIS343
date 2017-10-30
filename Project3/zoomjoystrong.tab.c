@@ -443,7 +443,7 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyrline[] =
 {
        0,    30,    30,    32,    35,    37,    39,    41,    43,    45,
-      48,    54,    64,    70,    76,    82
+      48,    55,    65,    75,    85,    95
 };
 #endif
 
@@ -1232,56 +1232,73 @@ yyreduce:
 #line 49 "zoomjoystrong.y" /* yacc.c:1646  */
     {
 		finish();
+		exit(0);
 		}
-#line 1237 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1238 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 55 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 56 "zoomjoystrong.y" /* yacc.c:1646  */
     {
 		  if((yyvsp[-4].ival) < 0 || (yyvsp[-3].ival) < 0 || (yyvsp[-4].ival) > WIDTH || (yyvsp[-3].ival) > HEIGHT){
-		  	yyerror("HEIGHT or WIDTH is out of bounds");
+		  	yyerror("Dimensions out of bounds");
 		  }else{
          	 	line((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
          	}
-#line 1249 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1250 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 65 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 66 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  point((yyvsp[-2].ival),(yyvsp[-1].ival));
+		  if((yyvsp[-2].ival) < 0 || (yyvsp[-1].ival) < 0 || (yyvsp[-2].ival) > WIDTH || (yyvsp[-1].ival) > HEIGHT){
+		  	yyerror("Dimensions out of bounds");
+		  }else{
+         	 	point((yyvsp[-2].ival),(yyvsp[-1].ival));
+		  }
 		}
-#line 1257 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1262 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 71 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 76 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  circle((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  if((yyvsp[-3].ival) < 0 || (yyvsp[-2].ival) < 0 || (yyvsp[-3].ival) > WIDTH || (yyvsp[-2].ival) > HEIGHT){
+		  	yyerror("Dismensions out of bounds");
+		  }else{
+		  	circle((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  }
 		}
-#line 1265 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1274 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 77 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 86 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  rectangle((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  if((yyvsp[-4].ival) < 0 || (yyvsp[-3].ival) < 0 || (yyvsp[-4].ival) > WIDTH || (yyvsp[-3].ival) > HEIGHT){
+		  	yyerror("Dismensions out of bounds");
+		  }else{
+		  	rectangle((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  }
 		}
-#line 1273 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1286 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 83 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 96 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  set_color((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  if ((yyvsp[-3].ival) < 0 || (yyvsp[-2].ival) < 0 || (yyvsp[-1].ival) < 0 || (yyvsp[-3].ival) > 255 || (yyvsp[-2].ival) >255 || (yyvsp[-1].ival) > 255){
+			yyerror("Color Does Not Exist");
+		  }else {
+		  	set_color((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
+		  }
 		}
-#line 1281 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1298 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1285 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1302 "zoomjoystrong.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1509,7 +1526,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 87 "zoomjoystrong.y" /* yacc.c:1906  */
+#line 104 "zoomjoystrong.y" /* yacc.c:1906  */
 
 
 main()
