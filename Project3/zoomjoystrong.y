@@ -10,8 +10,7 @@
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
-//These are here to remove warnings in from the
-//auto generated files.
+/** Explicitly defining the yyerror and yylex commands */
 int yyerror(char *s);
 int yylex(void);
 
@@ -58,10 +57,10 @@ statement:	line
 
 end:		END END_STATEMENT
 		{
-		/* Calls finish for the drawing software */
-		finish();
-		/* Calls exit to leave the program */
-		exit(0);
+		  /* Calls finish for the drawing software */
+		  finish();
+		  /* Calls exit to leave the program */
+		  exit(0);
 		}
 		;
 
@@ -69,7 +68,7 @@ line:		LINE INT INT INT INT END_STATEMENT
 		{
 		  /* Checks if starting point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
-		  	yyerror("Dimensions out of bounds");
+		  	yyerror("Starting point out of bounds");
 		  }else{
          	 	line($2,$3,$4,$5);
 		  }
@@ -78,9 +77,9 @@ line:		LINE INT INT INT INT END_STATEMENT
 
 point:		POINT INT INT END_STATEMENT
 		{
-		  /* Checks if starting point is out of bounds */
+		  /* Checks if point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
-		  	yyerror("Dimensions out of bounds");
+		  	yyerror("Point out of bounds");
 		  }else{
          	 	point($2,$3);
 		  }
@@ -89,9 +88,9 @@ point:		POINT INT INT END_STATEMENT
 
 circle:		CIRCLE INT INT INT END_STATEMENT
 		{
-		  /* Checks if starting point is out of bounds */
+		  /* Checks if center is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
-		  	yyerror("Dismensions out of bounds");
+		  	yyerror("Center out of bounds");
 		  }else{
 		  	circle($2,$3,$4);
 		  }
@@ -100,9 +99,9 @@ circle:		CIRCLE INT INT INT END_STATEMENT
 
 rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 		{
-		  /* Checks if starting point is out of bounds */
+		  /* Checks if corner is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
-		  	yyerror("Dismensions out of bounds");
+		  	yyerror("Corner out of bounds");
 		  }else{
 		  	rectangle($2,$3,$4,$5);
 		  }
@@ -123,8 +122,8 @@ set_color:	SET_COLOR INT INT INT END_STATEMENT
 
 int main()
 {
- setup();
- return(yyparse());
+  setup();
+  return(yyparse());
 }
 
 int yyerror(char *s)
