@@ -10,8 +10,11 @@
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
-/** Explicitly defining the yyerror and yylex commands */
+
+/** Defining the yyerror function */
 int yyerror(char *s);
+
+/** Defining the yylex function */
 int yylex(void);
 
 %}
@@ -34,7 +37,7 @@ int yylex(void);
 %token <fval> FLOAT
 
 
-%%                   /* beginning of rules section */
+%%
 
 statement_list:
 		statement
@@ -57,16 +60,16 @@ statement:	line
 
 end:		END END_STATEMENT
 		{
-		  /* Calls finish for the drawing software */
+		  // Calls finish for the drawing software
 		  finish();
-		  /* Calls exit to leave the program */
+		  // Calls exit to leave the program 
 		  exit(0);
 		}
 		;
 
 line:		LINE INT INT INT INT END_STATEMENT
 		{
-		  /* Checks if starting point is out of bounds */
+		  // Checks if starting point is out of bounds
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Starting point out of bounds");
 		  }else{
@@ -77,7 +80,7 @@ line:		LINE INT INT INT INT END_STATEMENT
 
 point:		POINT INT INT END_STATEMENT
 		{
-		  /* Checks if point is out of bounds */
+		  // Checks if point is out of bounds
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Point out of bounds");
 		  }else{
@@ -88,7 +91,7 @@ point:		POINT INT INT END_STATEMENT
 
 circle:		CIRCLE INT INT INT END_STATEMENT
 		{
-		  /* Checks if center is out of bounds */
+		  // Checks if center is out of bounds
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Center out of bounds");
 		  }else{
@@ -99,7 +102,7 @@ circle:		CIRCLE INT INT INT END_STATEMENT
 
 rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 		{
-		  /* Checks if corner is out of bounds */
+		  // Checks if corner is out of bounds
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Corner out of bounds");
 		  }else{
@@ -110,7 +113,7 @@ rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 
 set_color:	SET_COLOR INT INT INT END_STATEMENT
 		{
-		  /* Checks if color codes are 0-255 */
+		  // Checks if color codes are 0-255
 		  if ($2<0 || $3<0 || $4<0 || $2>255 || $3>255 || $4>255){
 			yyerror("Color Does Not Exist");
 		  }else {
@@ -122,6 +125,7 @@ set_color:	SET_COLOR INT INT INT END_STATEMENT
 
 int main()
 {
+  // Calls setup for the graphics library then parses
   setup();
   return(yyparse());
 }
