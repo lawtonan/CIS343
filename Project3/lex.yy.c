@@ -479,13 +479,19 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "zoomjoystrong.lex"
-#line 2 "zoomjoystrong.lex"
+/******************************************************************************** This is a lexing program used if our own language of Zoomjoystrong.
+* It contains the regular expressions used to return tokens to the parsing
+* program to check if they fall into the valid grammar. 
+* 
+* @author Andrew Lawton
+*******************************************************************************/
+#line 8 "zoomjoystrong.lex"
 
 #include <stdio.h>
 #include "zoomjoystrong.tab.h"
 #include "zoomjoystrong.h"
 
-#line 489 "lex.yy.c"
+#line 495 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -667,10 +673,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 11 "zoomjoystrong.lex"
+#line 17 "zoomjoystrong.lex"
 
 
-#line 674 "lex.yy.c"
+#line 680 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -755,17 +761,17 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "zoomjoystrong.lex"
+#line 19 "zoomjoystrong.lex"
 {return END;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "zoomjoystrong.lex"
+#line 20 "zoomjoystrong.lex"
 {return END_STATEMENT;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 "zoomjoystrong.lex"
+#line 21 "zoomjoystrong.lex"
 {
 		yylval.ival = atoi(yytext);
 		return INT;
@@ -773,7 +779,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 19 "zoomjoystrong.lex"
+#line 25 "zoomjoystrong.lex"
 {
 		yylval.fval = atof(yytext);
 		return FLOAT;
@@ -781,46 +787,46 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 23 "zoomjoystrong.lex"
+#line 29 "zoomjoystrong.lex"
 {return LINE;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 24 "zoomjoystrong.lex"
+#line 30 "zoomjoystrong.lex"
 {return POINT;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 25 "zoomjoystrong.lex"
+#line 31 "zoomjoystrong.lex"
 {return CIRCLE;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 26 "zoomjoystrong.lex"
+#line 32 "zoomjoystrong.lex"
 {return RECTANGLE;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 27 "zoomjoystrong.lex"
+#line 33 "zoomjoystrong.lex"
 {return SET_COLOR;}
 	YY_BREAK
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
-#line 28 "zoomjoystrong.lex"
+#line 34 "zoomjoystrong.lex"
 ;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 29 "zoomjoystrong.lex"
+#line 35 "zoomjoystrong.lex"
 {printf("You Messed Up");}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 31 "zoomjoystrong.lex"
+#line 37 "zoomjoystrong.lex"
 ECHO;
 	YY_BREAK
-#line 824 "lex.yy.c"
+#line 830 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1814,7 +1820,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 31 "zoomjoystrong.lex"
+#line 37 "zoomjoystrong.lex"
 
 
 

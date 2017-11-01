@@ -1,3 +1,9 @@
+/******************************************************************************** This is a lexing program used if our own language of Zoomjoystrong.
+* It contains the regular expressions used to return tokens to the parsing
+* program to check if they fall into the valid grammar. 
+* 
+* @author Andrew Lawton
+*******************************************************************************/
 %{
 
 #include <stdio.h>

@@ -1,8 +1,19 @@
+/****************************************************************************** 
+* This is a parsing program used in our own language of Zoomjoystrong. 
+* It contains the grammar rules of the language and uses C code to 
+* call the provided graphics library to display the different functions
+* of Zoomjoystrong.
+*
+* @author Andrew Lawton
+*******************************************************************************/
 %{
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
+//These are here to remove warnings in from the
+//auto generated files.
 int yyerror(char *s);
+int yylex(void);
 
 %}
 
@@ -47,13 +58,16 @@ statement:	line
 
 end:		END END_STATEMENT
 		{
+		/* Calls finish for the drawing software */
 		finish();
+		/* Calls exit to leave the program */
 		exit(0);
 		}
 		;
 
 line:		LINE INT INT INT INT END_STATEMENT
 		{
+		  /* Checks if starting point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Dimensions out of bounds");
 		  }else{
@@ -64,6 +78,7 @@ line:		LINE INT INT INT INT END_STATEMENT
 
 point:		POINT INT INT END_STATEMENT
 		{
+		  /* Checks if starting point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Dimensions out of bounds");
 		  }else{
@@ -74,6 +89,7 @@ point:		POINT INT INT END_STATEMENT
 
 circle:		CIRCLE INT INT INT END_STATEMENT
 		{
+		  /* Checks if starting point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Dismensions out of bounds");
 		  }else{
@@ -84,6 +100,7 @@ circle:		CIRCLE INT INT INT END_STATEMENT
 
 rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 		{
+		  /* Checks if starting point is out of bounds */
 		  if($2 < 0 || $3 < 0 || $2 > WIDTH || $3 > HEIGHT){
 		  	yyerror("Dismensions out of bounds");
 		  }else{
@@ -94,7 +111,8 @@ rectangle:	RECTANGLE INT INT INT INT END_STATEMENT
 
 set_color:	SET_COLOR INT INT INT END_STATEMENT
 		{
-		  if ($2 < 0 || $3 < 0 || $4 < 0 || $2 > 255 || $3 >255 || $4 > 255){
+		  /* Checks if color codes are 0-255 */
+		  if ($2<0 || $3<0 || $4<0 || $2>255 || $3>255 || $4>255){
 			yyerror("Color Does Not Exist");
 		  }else {
 		  	set_color($2,$3,$4);
@@ -103,7 +121,7 @@ set_color:	SET_COLOR INT INT INT END_STATEMENT
 
 %%
 
-main()
+int main()
 {
  setup();
  return(yyparse());

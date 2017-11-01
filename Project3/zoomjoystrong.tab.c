@@ -62,15 +62,18 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "zoomjoystrong.y" /* yacc.c:339  */
+#line 9 "zoomjoystrong.y" /* yacc.c:339  */
 
 
 #include <stdio.h>
 #include "zoomjoystrong.h"
+//These are here to remove warnings in from the
+//auto generated files.
 int yyerror(char *s);
+int yylex(void);
 
 
-#line 74 "zoomjoystrong.tab.c" /* yacc.c:339  */
+#line 77 "zoomjoystrong.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -122,12 +125,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 11 "zoomjoystrong.y" /* yacc.c:355  */
+#line 22 "zoomjoystrong.y" /* yacc.c:355  */
 
 	int ival;
 	float fval;
 
-#line 131 "zoomjoystrong.tab.c" /* yacc.c:355  */
+#line 134 "zoomjoystrong.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -144,7 +147,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 148 "zoomjoystrong.tab.c" /* yacc.c:358  */
+#line 151 "zoomjoystrong.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -442,8 +445,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    30,    30,    32,    35,    37,    39,    41,    43,    45,
-      48,    55,    65,    75,    85,    95
+       0,    41,    41,    43,    46,    48,    50,    52,    54,    56,
+      59,    68,    79,    90,   101,   112
 };
 #endif
 
@@ -1229,76 +1232,83 @@ yyreduce:
   switch (yyn)
     {
         case 10:
-#line 49 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 60 "zoomjoystrong.y" /* yacc.c:1646  */
     {
+		/* Calls finish for the drawing software */
 		finish();
+		/* Calls exit to leave the program */
 		exit(0);
 		}
-#line 1238 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1243 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 56 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 69 "zoomjoystrong.y" /* yacc.c:1646  */
     {
+		  /* Checks if starting point is out of bounds */
 		  if((yyvsp[-4].ival) < 0 || (yyvsp[-3].ival) < 0 || (yyvsp[-4].ival) > WIDTH || (yyvsp[-3].ival) > HEIGHT){
 		  	yyerror("Dimensions out of bounds");
 		  }else{
          	 	line((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
          	}
-#line 1250 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1256 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 66 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 80 "zoomjoystrong.y" /* yacc.c:1646  */
     {
+		  /* Checks if starting point is out of bounds */
 		  if((yyvsp[-2].ival) < 0 || (yyvsp[-1].ival) < 0 || (yyvsp[-2].ival) > WIDTH || (yyvsp[-1].ival) > HEIGHT){
 		  	yyerror("Dimensions out of bounds");
 		  }else{
          	 	point((yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
 		}
-#line 1262 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1269 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 76 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 91 "zoomjoystrong.y" /* yacc.c:1646  */
     {
+		  /* Checks if starting point is out of bounds */
 		  if((yyvsp[-3].ival) < 0 || (yyvsp[-2].ival) < 0 || (yyvsp[-3].ival) > WIDTH || (yyvsp[-2].ival) > HEIGHT){
 		  	yyerror("Dismensions out of bounds");
 		  }else{
 		  	circle((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
 		}
-#line 1274 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1282 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 86 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 102 "zoomjoystrong.y" /* yacc.c:1646  */
     {
+		  /* Checks if starting point is out of bounds */
 		  if((yyvsp[-4].ival) < 0 || (yyvsp[-3].ival) < 0 || (yyvsp[-4].ival) > WIDTH || (yyvsp[-3].ival) > HEIGHT){
 		  	yyerror("Dismensions out of bounds");
 		  }else{
 		  	rectangle((yyvsp[-4].ival),(yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
 		}
-#line 1286 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1295 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 96 "zoomjoystrong.y" /* yacc.c:1646  */
+#line 113 "zoomjoystrong.y" /* yacc.c:1646  */
     {
-		  if ((yyvsp[-3].ival) < 0 || (yyvsp[-2].ival) < 0 || (yyvsp[-1].ival) < 0 || (yyvsp[-3].ival) > 255 || (yyvsp[-2].ival) >255 || (yyvsp[-1].ival) > 255){
+		  /* Checks if color codes are 0-255 */
+		  if ((yyvsp[-3].ival)<0 || (yyvsp[-2].ival)<0 || (yyvsp[-1].ival)<0 || (yyvsp[-3].ival)>255 || (yyvsp[-2].ival)>255 || (yyvsp[-1].ival)>255){
 			yyerror("Color Does Not Exist");
 		  }else {
 		  	set_color((yyvsp[-3].ival),(yyvsp[-2].ival),(yyvsp[-1].ival));
 		  }
 		}
-#line 1298 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1308 "zoomjoystrong.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1302 "zoomjoystrong.tab.c" /* yacc.c:1646  */
+#line 1312 "zoomjoystrong.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1526,10 +1536,10 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 104 "zoomjoystrong.y" /* yacc.c:1906  */
+#line 122 "zoomjoystrong.y" /* yacc.c:1906  */
 
 
-main()
+int main()
 {
  setup();
  return(yyparse());
