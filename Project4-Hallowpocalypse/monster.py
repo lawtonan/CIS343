@@ -1,4 +1,4 @@
-from Project4-Hallowpocalypse.observable import Observable
+from observerpattern.observable import Observable
 from random imort randint
 
 class Monster(Observable):

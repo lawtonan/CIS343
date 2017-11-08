@@ -1,3 +1,3 @@
-from Project4-Hallowpocalypse.observer import Observer
+from observerpattern.observer import Observer
 
 class Home(Observer):
