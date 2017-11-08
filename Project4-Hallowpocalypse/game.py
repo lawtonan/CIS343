@@ -5,5 +5,5 @@ class Game():
         pass
 
 if __name__ == "__main__":
-        x = Game()
-        x.run()
+    x = Game()
+    x.run()
