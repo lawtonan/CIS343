@@ -8,11 +8,11 @@ class Monster(Observable):
 
 class Person(Monster):
     def __init__(self):
-        super(self, 100, -1)
+        super(Monster, self).__init__(self, 100, -1)
 
 class Zombie(Monster):
     def __init__(self):
-        super(self,health(),strength())
+        super(Monster, self).__init__(self,health(),strength())
     def health():
         return randint(50,100)
     def strength():
@@ -20,7 +20,7 @@ class Zombie(Monster):
 
 class Vampire(Monster):
     def __init__(self):
-        super(self,health(),strength())
+        super(Monster, self).__init__(self,health(),strength())
     def health():
         return randint(100,200)
     def strength():
@@ -28,7 +28,7 @@ class Vampire(Monster):
 
 class Ghouls(Monster):
     def __init__(self):
-        super(self,health(),strength())
+        super(Monster, self).__init__(self,health(),strength())
     def health():
         return randint(40,80)
     def strength():
@@ -36,6 +36,6 @@ class Ghouls(Monster):
 
 class Werewolve(Monster):
     def __init__(self):
-        super(self,200,strength())
+        super(Monster, self).__init__(self,200,strength())
     def strength():
         return randint(0,40)
