@@ -1,5 +1,5 @@
 from observerpattern.observable import Observable
-from random imort randint
+from random import randint
 
 class Monster(Observable):
     def __init__(self, health = 100, strength = 10):
