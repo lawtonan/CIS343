@@ -3,7 +3,7 @@
 import sys
 
 class Game():
-    def run():
+    def run(self):
         pass
 
 if __name__ == "__main__":
