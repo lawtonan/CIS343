@@ -2,6 +2,7 @@ from observerpattern.observable import Observable
 from random import randint
 
 class Monster(Observable):
+    ''' Docs Here '''
     def __init__(self, health = 100, strength = 10):
         self.health = health
         self.strength = strength
