@@ -12,30 +12,16 @@ class Person(Monster):
 
 class Zombie(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,health(),strength())
-    def health():
-        return randint(50,100)
-    def strength():
-        return randint(0,10)
+        super(Monster, self).__init__(self,randint(50,100),randint(0,10))
 
 class Vampire(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,health(),strength())
-    def health():
-        return randint(100,200)
-    def strength():
-        return randint(10,20)
+        super(Monster, self).__init__(self, randint(100,200), randint(10,20))
 
 class Ghouls(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,health(),strength())
-    def health():
-        return randint(40,80)
-    def strength():
-        return randint(15,30)
+        super(Monster, self).__init__(self, randint(40,80), randint(15,30))
 
 class Werewolve(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,200,strength())
-    def strength():
-        return randint(0,40)
+        super(Monster, self).__init__(self,200, randint(0,40))

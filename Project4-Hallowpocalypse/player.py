@@ -1,2 +1,4 @@
+from observerpattern import observer
 
-class Player():
+class Player(observer):
+    
