@@ -11,16 +11,16 @@ class Weapon(observable):
 
 class HershyKiss(Weapon):
     def __init__(self):
-        super(self,Weapon).__init__(self, "HershyKiss", 1)
+        super(HershyKiss,self).__init__(self, "HershyKiss", 1, )
 
 class SourStraw(Weapon):
     def __init__(self):
-        super(self,Weapon).__init__(self, "SourStraw", randrange(1,1.75))
+        super(SourStraw,self).__init__(self, "SourStraw", randrange(1,1.75))
 
 class ChocolateBar(Weapon):
     def __init__(self):
-        super(self,Weapon).__init__(self, "ChocolateBar", randrange(2,2.4))
+        super(ChocolateBar,self).__init__(self, "ChocolateBar", randrange(2,2.4))
 
 class NerdBomb(Weapon):
     def __init__(self):
-        super(self,Weapon).__init__(self, "NerdBomb", randrange(3.5,5))
+        super(NerdBomb,self).__init__(self, "NerdBomb", randrange(3.5,5))
