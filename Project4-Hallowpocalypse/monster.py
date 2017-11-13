@@ -6,23 +6,49 @@ class Monster(Observable):
     def __init__(self, health = 100, strength = 10):
         self.health = health
         self.strength = strength
+    def takeDamage(self, damage, weapon):
+        health = health - damage
+        if (health < 0):
+            update(self)
 
 class Person(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self, 100, -1)
+        super(Person, self).__init__(self, 100, -1)
+    def takeDamage(self, damage, weapon):
+        super(Person,self).takeDamage(self, 0)
 
 class Zombie(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,randint(50,100),randint(0,10))
+        super(Zombie, self).__init__(self,randint(50,100),randint(0,10))
+    def takeDamage(self, damage, weapon):
+        if (type(weapon) is SourStraw):
+            super(Zombie,self).takeDamage(self, 2*damage, weapon)
+        else:
+            super(Zombie,self).takeDamage(self, damage, weapon)
 
 class Vampire(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self, randint(100,200), randint(10,20))
+        super(Vampire, self).__init__(self, randint(100,200), randint(10,20))
+    def takeDamage(self, damage, weapon):
+        if (type(weapon) is ChocolateBar):
+            super(Vampire,self).takeDamage(self, 0, weapon)
+        else:
+            super(Vampire,self).takeDamage(self, damage, weapon)
 
-class Ghouls(Monster):
+class Ghoul(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self, randint(40,80), randint(15,30))
+        super(Ghoul, self).__init__(self, randint(40,80), randint(15,30))
+    def takeDamage(self, damage, weapon):
+        if (type(weapon) is NerdBomb):
+            super(Ghoul,self).takeDamage(self, 5*damage, weapon)
+        else:
+            super(Ghoul,self).takeDamage(self, damage, weapon)
 
-class Werewolve(Monster):
+class Werewolf(Monster):
     def __init__(self):
-        super(Monster, self).__init__(self,200, randint(0,40))
+        super(Werewolf, self).__init__(self,200, randint(0,40))
+    def takeDamage(self, damage, weapon):
+        if (type(weapon) is ChocolateBar or type(weapon) is SourStraw):
+            super(Zombie,self).takeDamage(self, 0*damage, weapon)
+        else:
+            super(Zombie,self).takeDamage(self, damage, weapon)
