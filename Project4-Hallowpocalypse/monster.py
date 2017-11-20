@@ -10,6 +10,23 @@ class Monster(Observable):
         health = health - damage
         if (health < 0):
             update(self)
+    def randMonter():
+        for num in randrange(5):
+            if (num == 0):
+                person = Person()
+                return person
+            if (num == 1):
+                zombie = Zombie()
+                return zombie
+            if (num == 2):
+                vampire = Vampire()
+                return vampire
+            if (num == 3):
+                ghoul = Gouhl()
+                return ghoul
+            if (num == 4):
+                werewolf = Werewolf()
+                return werewolf
 
 class Person(Monster):
     def __init__(self):
