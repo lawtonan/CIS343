@@ -8,10 +8,20 @@ class Weapon(observable):
         self.uses = uses
     def use():
         uses = uses - 1
+        if uses < 0 and not type(HersheyKiss):
+            update()
+    def randWeapon():
+        for i in randrange(3):
+            if i == 0:
+                return SourStraw()
+            if i == 1:
+                return ChocolateBar()
+            if i == 2:
+                return NerdBomb()
 
-class HershyKiss(Weapon):
+class HersheyKiss(Weapon):
     def __init__(self):
-        super(HershyKiss,self).__init__(self, "HershyKiss", 1, )
+        super(HersheyKiss,self).__init__(self, "HersheyKiss", 1, -1)
 
 class SourStraw(Weapon):
     def __init__(self):
