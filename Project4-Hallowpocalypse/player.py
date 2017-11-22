@@ -11,3 +11,5 @@ class Player(observer):
         weapons.append(HersheyKiss())
         for i in range(9):
             weapons.append(randWeapon())
+    def attack(weapon):
+        return weapon.getModifier()
