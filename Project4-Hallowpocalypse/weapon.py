@@ -18,6 +18,8 @@ class Weapon(observable):
                 return ChocolateBar()
             if i == 2:
                 return NerdBomb()
+    def getModifier():
+        return modifier
 
 class HersheyKiss(Weapon):
     def __init__(self):
