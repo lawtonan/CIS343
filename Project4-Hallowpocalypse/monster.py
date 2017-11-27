@@ -1,71 +1,88 @@
-from observerpattern.observable import Observable
+import Entity
+from Weapons import SourStraws, ChocolateBars, NerdBombs
 from random import randint
 
-class Monster(Observable):
-    ''' Docs Here '''
-    def __init__(self, health = 100, strength = 10):
-        self.health = health
-        self.strength = strength
-    def takeDamage(self, damage, weapon):
-        health = health - damage
-        if (health < 0):
-            update(self)
-    def randMonter():
-        for num in randrange(5):
-            if (num == 0):
-                person = Person()
-                return person
-            if (num == 1):
-                zombie = Zombie()
-                return zombie
-            if (num == 2):
-                vampire = Vampire()
-                return vampire
-            if (num == 3):
-                ghoul = Gouhl()
-                return ghoul
-            if (num == 4):
-                werewolf = Werewolf()
-                return werewolf
-
-class Person(Monster):
+class Person(Entity):
     def __init__(self):
-        super(Person, self).__init__(self, 100, -1)
+        super(Person, self).__init__(100, -1)
+    def __str__(self):
+        return "Person"
     def takeDamage(self, damage, weapon):
-        super(Person,self).takeDamage(self, 0)
+        super(Person,self).takeDamage(0)
 
-class Zombie(Monster):
+class Zombie(Entity):
     def __init__(self):
-        super(Zombie, self).__init__(self,randint(50,100),randint(0,10))
-    def takeDamage(self, damage, weapon):
-        if (type(weapon) is SourStraw):
-            super(Zombie,self).takeDamage(self, 2*damage, weapon)
+        super(Zombie, self).__init__(health=randint(50, 100), attack=randint(0, 10))
+
+    def __str__(self):
+        return "Zombie"
+
+    def takeDamage(self, amount, weapon):
+        if type(weapon) is SourStraws:
+            print("Zombies take Double damage from Sour Straws")
+            damage = amount * 2
         else:
-            super(Zombie,self).takeDamage(self, damage, weapon)
+            damage = amount
 
-class Vampire(Monster):
-    def __init__(self):
-        super(Vampire, self).__init__(self, randint(100,200), randint(10,20))
-    def takeDamage(self, damage, weapon):
-        if (type(weapon) is ChocolateBar):
-            super(Vampire,self).takeDamage(self, 0, weapon)
-        else:
-            super(Vampire,self).takeDamage(self, damage, weapon)
+        super(Zombie, self).takeDamage(damage)
 
-class Ghoul(Monster):
+class Vampire(Entity):
     def __init__(self):
-        super(Ghoul, self).__init__(self, randint(40,80), randint(15,30))
-    def takeDamage(self, damage, weapon):
-        if (type(weapon) is NerdBomb):
-            super(Ghoul,self).takeDamage(self, 5*damage, weapon)
-        else:
-            super(Ghoul,self).takeDamage(self, damage, weapon)
+        super(Vampire, self).__init__(health=randint(100, 200), attack=randint(10, 20))
 
-class Werewolf(Monster):
-    def __init__(self):
-        super(Werewolf, self).__init__(self,200, randint(0,40))
-    def takeDamage(self, damage, weapon):
-        if (type(weapon) is ChocolateBar or type(weapon) is SourStraw):
-            super(Zombie,self).takeDamage(self, 0*damage, weapon)
+    def __str__(self):
+        return "Vampire"
+
+    def takeDamage(self, amount, weapon):
+        if type(weapon) is ChocolateBars:
+            print("Vampires take no damage from Chocolate Bars")
+            damage = 0
         else:
-            super(Zombie,self).takeDamage(self, damage, weapon)
+            damage = amount
+        super(Vampire, self).takeDamage(damage)
+
+class Ghoul(Entity):
+    def __init__(self):
+        super(Ghoul, self).__init__(health=randint(40, 80), attack=randint(15, 30))
+
+    def __str__(self):
+        return "Ghoul"
+
+    def takeDamage(self, amount, weapon):
+        if type(weapon) is NerdBombs:
+            damage = amount * 5
+        else:
+            damage = amount
+
+        super(Ghoul, self).takeDamage(damage)
+
+class Werewolf(Entity):
+    def __init__(self):
+        super(Werewolf, self).__init__(health=200, attack=randint(5, 30))
+
+    def __str__(self):
+        return "Werewolf"
+
+    def takeDamage(self, amount, weapon):
+        if type(weapon) is ChocolateBars or type(weapon) is SourStraws:
+            print("Werewolves take no damage from Chocolate Bars or Sour Straws")
+            damage = 0
+        else:
+            damage = amount
+        super(Werewolf, self).takeDamage(damage)
+
+def randMonter():
+    monsterInt = randint(0, 4)
+
+    if(monsterInt == 0):
+        return Person()
+    elif(monsterInt == 1):
+        return Zombie()
+    elif(monsterInt == 2):
+        return Vampire()
+    elif(monsterInt == 3):
+        return Ghoul()
+    elif(monsterInt == 4):
+        return Werewolf()
+    else:
+        return None
