@@ -4,7 +4,7 @@ from game import Game
 
 if __name__ == "__main__":
 
-    commands = ["Move", "Attack", "Spy", "Quit"]
+    commands = ["m", "a", "s", "q"]
 
     print("Everyone in The neighborhood has been turned into monsters due to tainted candy. clear all the houses of the monsters to win")
     game = Game()
@@ -15,10 +15,10 @@ if __name__ == "__main__":
 
         print("Current location: {}".format(game.getPlayerLoc()))
         print("Commands:")
-        print("Move")
-        print("Attack")
-        print("Spy")
-        print("Quit")
+        print("m: Move")
+        print("a: Attack")
+        print("s: Spy")
+        print("q: Quit")
         command = input("")
         if command in commands:
             if command is commands[0]:
