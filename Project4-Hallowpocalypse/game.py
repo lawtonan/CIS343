@@ -1,4 +1,4 @@
-import player
+from entities.player import player
 from observerpattern.observer import Observer
 from neighborhood import Neighborhood
 
