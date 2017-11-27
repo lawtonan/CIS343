@@ -48,7 +48,7 @@ class NerdBomb(Weapon):
 
 def randWeapons(amount, player):
     weapons = []
-    weapons.append(HersheyKisses())
+    weapons.append(HersheyKiss())
     for i in range(amount - 1):
         weapons.append(randWeapon())
         weapons[len(weapons) - 1].add_observer(player)
