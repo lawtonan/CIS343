@@ -17,7 +17,7 @@ class Weapon(Observable):
     def use(self, amount):
         if self.name == "HersheyKiss":
             return amount
-        if self._durability > 0:
+        if self.durability > 0:
             modAmount = amount * self.modifier
             self.uses = self.uses - 1
             return modAmount
@@ -25,7 +25,7 @@ class Weapon(Observable):
             return 0
 
     def checkStatus(self):
-        if self._durability <= 0 and not self.name == "HersheyKiss":
+        if self.durability <= 0 and not self.name == "HersheyKiss":
             self.sendUpdate(self)
             self.remove_all_observers()
 
