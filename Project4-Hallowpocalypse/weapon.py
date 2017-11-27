@@ -1,4 +1,4 @@
-from random import randrange, uniform
+from random import randint, uniform
 from observerpattern.observable import Observable
 
 class Weapon(Observable):
