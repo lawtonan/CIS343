@@ -8,9 +8,9 @@ class Home(Observer):
 
     def __str__(self):
         s = "\nHouse Contains: \n"
-        if len(self._monsters) == 0:
+        if len(self.monsters) == 0:
             s = s + "Nothing\n"
-        for mon in self._monsters:
+        for mon in self.monsters:
             s = s + "{} \n".format(mon)
         return s
 
@@ -24,8 +24,8 @@ class Home(Observer):
         return True
 
     def receiveUpdate(self, info):
-        if info in self._monsters:
-            self._monsters[self._monsters.index(info)] = monster.Person()
+        if info in self.monsters:
+            self.monsters[self.monsters.index(info)] = monster.Person()
 
     def dealDamage(self, player):
         for mon in self.monsters:
