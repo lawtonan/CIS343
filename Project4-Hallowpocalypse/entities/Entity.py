@@ -29,7 +29,7 @@ class Entity(Observable):
 
         if self.isDead():
             self.sendUpdate()
-            self.removeall_observers()
+            self.remove_all_observers()
 
     def printDamage(self, amount):
         if not self.isDead():
