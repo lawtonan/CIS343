@@ -4,11 +4,11 @@ from neighborhood import Neighborhood
 
 
 class Game(Observer):
-    def __init__(self):
+    def __init__(self, size):
         self.player = Player()
         self.player.add_observer(self)
         self.playerLoc = (0, 0)
-        self.neighborhood = Neighborhood()
+        self.neighborhood = Neighborhood(size, size)
         self.isPlaying = True
 
     def receiveUpdate(self, info=None):

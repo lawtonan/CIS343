@@ -6,7 +6,11 @@ if __name__ == "__main__":
 
     commands = ["m", "a", "s", "q"]
 
-    print("Everyone in The neighborhood has been turned into monsters due to tainted candy. clear all the houses of the monsters to win")
+    print("Welcome to Hallowpocalypse.")
+    print("A Zork-Like game that is made in python3 and probably isn't balanced!")
+    print("The goal of the game is to clear each house before you die! Good Luck!")
+    print("\nWhat size neighborhood would you like to play?")
+    size = int(input("A square neighborhood with a length of: "))
     game = Game()
 
     while True:
