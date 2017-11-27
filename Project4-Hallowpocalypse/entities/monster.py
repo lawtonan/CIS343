@@ -34,7 +34,7 @@ class Vampire(Entity):
         return "Vampire"
 
     def takeDamage(self, amount, weapon):
-        if type(weapon) is ChocolateBars:
+        if type(weapon) is ChocolateBar:
             print("Vampires take no damage from Chocolate Bars")
             damage = 0
         else:
@@ -49,7 +49,7 @@ class Ghoul(Entity):
         return "Ghoul"
 
     def takeDamage(self, amount, weapon):
-        if type(weapon) is NerdBombs:
+        if type(weapon) is NerdBomb:
             damage = amount * 5
         else:
             damage = amount
@@ -64,7 +64,7 @@ class Werewolf(Entity):
         return "Werewolf"
 
     def takeDamage(self, amount, weapon):
-        if type(weapon) is ChocolateBars or type(weapon) is SourStraws:
+        if type(weapon) is ChocolateBar or type(weapon) is SourStraw:
             print("Werewolves take no damage from Chocolate Bars or Sour Straws")
             damage = 0
         else:
