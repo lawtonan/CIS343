@@ -8,7 +8,7 @@ class Player(Entity, Observer, Observable):
     def __init__(self):
 
         self.name = "Player"
-        self.weapons = Weapon.randWeapons(10,self)
+        self.weapons = weapon.randWeapons(10,self)
         Entity.__init__(self, attack=randint(10, 20))
         Observable.__init__(self)
 
