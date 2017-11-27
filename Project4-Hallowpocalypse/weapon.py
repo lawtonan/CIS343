@@ -9,7 +9,7 @@ class Weapon(Observable):
         super(Weapon, self).__init__()
 
     def __str__(self):
-        return "{} \t Durability: {}".format(self.name, self.uses)
+        return "{} \t uses: {}".format(self.name, self.uses)
 
     def getName(self):
         return self.name
@@ -17,7 +17,7 @@ class Weapon(Observable):
     def use(self, amount):
         if self.name == "HersheyKiss":
             return amount
-        if self.durability > 0:
+        if self.uses > 0:
             modAmount = amount * self.modifier
             self.uses = self.uses - 1
             return modAmount
@@ -25,7 +25,7 @@ class Weapon(Observable):
             return 0
 
     def checkStatus(self):
-        if self.durability <= 0 and not self.name == "HersheyKiss":
+        if self.uses <= 0 and not self.name == "HersheyKiss":
             self.sendUpdate(self)
             self.remove_all_observers()
 
