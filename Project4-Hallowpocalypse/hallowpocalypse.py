@@ -32,7 +32,7 @@ if __name__ == "__main__":
                     print("That was an Invalid Move!")
 
             if command is commands[1]:
-                print("Choose weapon: \n")
+                print("Choose a weapon: \n")
                 game.getPlayer().printWeapons()
 
                 try:
@@ -46,12 +46,23 @@ if __name__ == "__main__":
                 game.getNeighborhood().peekHouse(game.getPlayerLoc())
 
             if command is commands[3]:
-                print("Thanks for playing!")
-                exit()
+                print("There is no save feature in this game. Are you sure you want to quit?")
+                inp = input("Y or N: ")
+                if inp == 'N':
+                    print("See you around space cowboy!")
+                    exit()
+                else:
+                    continue
 
         else:
-            print("invalid command")
+            print("That is not a valid command!")
     if game.getNeighborhood().isClear():
-        print("You won!")
+        print("As the sun rises on the neighborhood you stand victorious!
+        print("All monsters are defeated and everyone comes out of their homes to celebrate")
+        #Cake ascii comes from http://www.chris.com/ascii/index.php?art=events/birthday
+        f = open('cake.txt', 'r')
+        file_contents = f.read()
+        print(file_contents)
+        f.close()
     else:
         print("You lost!")
