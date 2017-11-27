@@ -67,6 +67,7 @@ if __name__ == "__main__":
     else:
         print("As the sun rises on the neighborhood you lie dead on the ground.")
         print("All the monsters come from the houses and destroy the world.")
+        #skull askii comes from http://www.asciiworld.com/-Death-Co-.html
         f = open('skull.txt', 'r')
         file_contents = f.read()
         print(file_contents)

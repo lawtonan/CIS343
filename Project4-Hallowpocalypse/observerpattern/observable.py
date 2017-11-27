@@ -1,4 +1,8 @@
 class Observable(object):
+    '''
+    An Observable object used for a observer pattern in this code. Provided by
+    the teacher.
+    '''
 
     def __init__(self):
         self.observers = []
