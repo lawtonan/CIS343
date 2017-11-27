@@ -32,7 +32,7 @@ class Home(Observer):
             if not player.isDead():
                 mon.dealDamage(player)
 
-    def createMonsters(num):
+    def createMonsters(self):
         monsterList = []
         for i in range(0, randint(0, 10)):
             monsterList.append(monster.randMonster())
