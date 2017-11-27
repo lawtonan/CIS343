@@ -7,10 +7,11 @@ import weapon
 
 class Player(Entity, Observer, Observable):
     def __init__(self):
-        Entity.__init__(self, attack=randint(10, 20))
-        Observable.__init__(self)
+
         self.name = "Player"
         self.weapons = Weapons.randWeapons(10,self)
+        Entity.__init__(self, attack=randint(10, 20))
+        Observable.__init__(self)
 
     def __str__(self):
         return self._name
