@@ -1,6 +1,6 @@
 from observerpattern.observer import Observer
 import random
-import monster
+from entities import monster
 
 class Home(Observer):
     def __init__(self):
