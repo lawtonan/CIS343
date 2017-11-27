@@ -71,7 +71,7 @@ class Werewolf(Entity):
             damage = amount
         super(Werewolf, self).takeDamage(damage)
 
-def randMonter():
+def randMonster():
     monsterInt = randint(0, 4)
 
     if(monsterInt == 0):
