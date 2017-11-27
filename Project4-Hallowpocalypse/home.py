@@ -19,7 +19,7 @@ class Home(Observer):
 
     def isClear(self):
         for mon in self.monsters:
-            if not(type(mon) is monsters.Person):
+            if not(type(mon) is monster.Person):
                 return False
         return True
 
