@@ -58,7 +58,7 @@ class Game(Observer):
         if not self.isPlaying:
             return
 
-        self.player.attack(self.neighborhood.getHouse(loc), weaponNum)
+        self.player.attackAll(self.neighborhood.getHouse(loc), weaponNum)
         self.neighborhood.getHouse(loc).dealDamage(self.player)
 
         if self.getNeighborhood().isClear():

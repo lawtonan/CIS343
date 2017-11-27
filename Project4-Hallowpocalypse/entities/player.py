@@ -19,7 +19,7 @@ class Player(Entity, Observer, Observable):
         if info in self.weapons:
             print("Your uses for {} reaches 0 and falls apart!".format(info.getName()))
             self.weapons.remove(info)
-    def attack(self, house, weaponNum):
+    def attackAll(self, house, weaponNum):
         if weaponNum < 0 or weaponNum >= len(self.weapons):
             print("Weapon does not exist!")
             return
