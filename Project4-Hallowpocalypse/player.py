@@ -3,9 +3,8 @@ from observer import Observer
 from observable import Observable
 from random import randint
 import weapon
-from six import with_metaclass
 
-class Player(with_metaclass(Entity, Observer, Observable)):
+class Player(Entity, Observer, Observable):
     def __init__(self):
 
         self.name = "Player"
