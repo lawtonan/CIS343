@@ -3,12 +3,11 @@ from observer import Observer
 from observable import Observable
 from random import randint
 import weapon
+from six import with_metaclass
 
-from noconflict import classmaker
-
-class Player(Entity, Observer, Observable):
+class Player(with_metaclass(Entity, Observer, Observable)):
     def __init__(self):
-        __metaclass__=classmaker()
+
         self.name = "Player"
         self.weapons = Weapons.randWeapons(10,self)
         Entity.__init__(self, attack=randint(10, 20))
