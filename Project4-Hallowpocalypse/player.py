@@ -1,6 +1,6 @@
 import Entity
-from observer import Observer
-from observable import Observable
+from observerpattern.observer import Observer
+from observerpatter.observable import Observable
 from random import randint
 import weapon
 

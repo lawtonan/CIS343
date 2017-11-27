@@ -1,5 +1,5 @@
 from random import randrange, uniform
-from observable import Observable
+from observerpattern.observable import Observable
 
 class Weapon(Observable):
     def __init__(self, name, modifier, uses):

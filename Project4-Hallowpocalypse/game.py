@@ -1,5 +1,5 @@
 import player
-from observer import Observer
+from observerpattern.observer import Observer
 from neighborhood import Neighborhood
 
 

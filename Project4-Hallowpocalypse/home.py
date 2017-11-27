@@ -1,4 +1,4 @@
-from Observer import Observer
+from observerpattern.observer import Observer
 import random
 import monster
 

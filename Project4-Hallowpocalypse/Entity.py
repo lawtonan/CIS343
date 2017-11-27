@@ -1,4 +1,4 @@
-from observable import Observable
+from observerpattern.observable import Observable
 
 class Entity(Observable):
 

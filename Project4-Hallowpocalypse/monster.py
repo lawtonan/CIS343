@@ -1,5 +1,5 @@
 import Entity
-from Weapons import SourStraws, ChocolateBars, NerdBombs
+from weapon import SourStraws, ChocolateBars, NerdBombs
 from random import randint
 
 class Person(Entity):

@@ -1,8 +1,8 @@
-from home import Home()
+from home import Home
 
 class Neighborhood(object):
     def __init__(self, height=5, width=5):
-        self.houses = [[House() for x in range(width)] for y in range(height)]
+        self.houses = [[Home() for x in range(width)] for y in range(height)]
 
     def getHouse(self, loc):
         return self.houses[loc[0]][loc[1]]
