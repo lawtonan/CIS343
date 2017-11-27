@@ -48,8 +48,8 @@ if __name__ == "__main__":
             if command is commands[3]:
                 print("There is no save feature in this game. Are you sure you want to quit?")
                 inp = input("Y or N: ")
-                if inp == 'N':
-                    print("See you around space cowboy!")
+                if inp == 'Y':
+                    print("See you space cowboy!")
                     exit()
                 else:
                     continue
@@ -65,4 +65,9 @@ if __name__ == "__main__":
         print(file_contents)
         f.close()
     else:
-        print("You lost!")
+        print("As the sun rises on the neighborhood you lie dead on the ground.")
+        print("All the monsters come from the houses and destroy the world.")
+        f = open('skull.txt', 'r')
+        file_contents = f.read()
+        print(file_contents)
+        f.close()

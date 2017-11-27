@@ -37,10 +37,10 @@ class Player(Entity, Observer, Observable):
 
     def printDamage(self, amount):
         if not self.isDead():
-            print("OUCH! {} takes {} damage! \t current health: {}\n".format(self, amount, self.health))
+            print("OUCH! You take {} damage! \t current health: {}\n".format(amount, self.health))
         else:
-            print("OUCH! {} takes {} damage! \t current health: {}\n".format(self, amount, self.health))
-            print("OH NO! {} is defeated and transforms into a {}!\n".format(self, "Monster"))
+            print("OUCH! You take {} damage! \t current health: {}\n".format(amount, self.health))
+            print("OH NO! You are defeated!\n")
 
     def printWeapons(self):
         [print("{}: {}".format(i, weap)) for i, weap in enumerate(self.weapons)]
