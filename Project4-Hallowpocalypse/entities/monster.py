@@ -18,7 +18,7 @@ class Zombie(Entity):
         return "Zombie"
 
     def takeDamage(self, amount, weapon):
-        if type(weapon) is SourStraws:
+        if type(weapon) is SourStraw:
             print("Zombies take Double damage from Sour Straws")
             damage = amount * 2
         else:
