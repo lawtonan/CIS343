@@ -15,7 +15,7 @@ class Weapon(Observable):
         return self.name
 
     def use(self, amount):
-        if self.name == "HersheyKiss"
+        if self.name == "HersheyKiss":
             return amount
         if self._durability > 0:
             modAmount = amount * self.modifier
