@@ -57,7 +57,7 @@ if __name__ == "__main__":
         else:
             print("That is not a valid command!")
     if game.getNeighborhood().isClear():
-        print("As the sun rises on the neighborhood you stand victorious!)
+        print("As the sun rises on the neighborhood you stand victorious!")
         print("All monsters are defeated and everyone comes out of their homes to celebrate")
         #Cake ascii comes from http://www.chris.com/ascii/index.php?art=events/birthday
         f = open('cake.txt', 'r')
