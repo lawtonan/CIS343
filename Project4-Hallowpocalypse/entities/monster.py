@@ -1,4 +1,4 @@
-import Entity
+from .entities import Entity
 from weapon import SourStraws, ChocolateBars, NerdBombs
 from random import randint
 

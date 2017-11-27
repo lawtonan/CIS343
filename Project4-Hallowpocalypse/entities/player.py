@@ -1,4 +1,4 @@
-import Entity
+from .entities import Entity
 from observerpattern.observer import Observer
 from observerpattern.observable import Observable
 from random import randint
