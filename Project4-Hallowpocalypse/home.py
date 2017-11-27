@@ -1,5 +1,5 @@
 from observerpattern.observer import Observer
-import random
+import random import randint
 from entities import monster
 
 class Home(Observer):
