@@ -22,7 +22,7 @@ if __name__ == "__main__":
         command = input("")
         if command in commands:
             if command is commands[0]:
-                print("Pick a direction: (North, South, East, West)")
+                print("Pick a direction: (north, south, east, west)")
                 direction = input("Direction: ")
                 if not game.move((direction)):
                     print("That was an Invalid Move!")
