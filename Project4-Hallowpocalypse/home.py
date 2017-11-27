@@ -19,13 +19,13 @@ class Home(Observer):
 
     def isClear(self):
         for mon in self.monsters:
-            if not(type(mon) is Monsters.Person):
+            if not(type(mon) is monsters.Person):
                 return False
         return True
 
     def receiveUpdate(self, info):
         if info in self._monsters:
-            self._monsters[self._monsters.index(info)] = Monsters.Person()
+            self._monsters[self._monsters.index(info)] = monster.Person()
 
     def dealDamage(self, player):
         for mon in self.monsters:
@@ -35,6 +35,6 @@ class Home(Observer):
     def createMonsters(num):
         monsterList = []
         for i in range(0, randint(0, 10)):
-            monsterList.append(Monsters.randMonster())
+            monsterList.append(monster.randMonster())
             monsterList[len(monsterList) - 1].add_observer(self)
         return monsterList
