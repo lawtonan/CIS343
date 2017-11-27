@@ -11,7 +11,7 @@ if __name__ == "__main__":
     print("The goal of the game is to clear each house before you die! Good Luck!")
     print("\nWhat size neighborhood would you like to play?")
     size = int(input("A square neighborhood with a length of: "))
-    game = Game()
+    game = Game(size)
 
     while True:
         if not game.getStatus():

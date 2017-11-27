@@ -4,7 +4,7 @@ from neighborhood import Neighborhood
 
 
 class Game(Observer):
-    def __init__(self, size):
+    def __init__(self, size = 5):
         self.player = Player()
         self.player.add_observer(self)
         self.playerLoc = (0, 0)
