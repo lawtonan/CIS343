@@ -10,7 +10,7 @@ class Player(Entity, Observer, Observable):
         Entity.__init__(self, attack=randint(10, 20))
         Observable.__init__(self)
         self.name = "Player"
-        self.weapons = Weapons.randWeapons(10,self):
+        self.weapons = Weapons.randWeapons(10,self)
 
     def __str__(self):
         return self._name
@@ -41,7 +41,7 @@ class Player(Entity, Observer, Observable):
         else:
             print("{} takes {} damage! \t current health: {}".format(self, amount, self._health))
             print("{} is defeated and transforms into a {}!".format(self, "Monster"))
-            
+
     def printWeapons(self):
         [print("{}: {}".format(i, weap)) for i, weap in enumerate(self._weapons)]
 
