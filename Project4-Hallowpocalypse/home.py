@@ -27,7 +27,7 @@ class Home(Observer):
         if info in self._monsters:
             self._monsters[self._monsters.index(info)] = Monsters.Person()
 
-     def dealDamage(self, player):
+    def dealDamage(self, player):
         for mon in self.monsters:
             if not player.isDead():
                 mon.dealDamage(player)
