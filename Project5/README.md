@@ -1,2 +1,1 @@
-#THIS IS A TEMP HEADER FOR PROJECT 5
-IGNORE THIS FOR NOW!
+Welcome to this project/homwork. I'm trying to get better at labelling my git stuff so there you go.
